@@ -1,6 +1,5 @@
 #Binary Search is an algorithm that can reduce the number of steps for a program to select an element from a sorted list.
 require 'benchmark'
-require 'pry'
 
 def binary_search(sorted_array, number_of_interest)
   low = 0
@@ -22,7 +21,7 @@ def binary_search(sorted_array, number_of_interest)
   end
 end
 
-def dummy_search(sorted_array, number_of_interest)
+def simple_search(sorted_array, number_of_interest)
   count = 0
   sorted_array.each do |guess|
     if guess === number_of_interest
@@ -35,11 +34,5 @@ end
 sorted_array = Array.new(1000) { |n| n + 1 }
 number_of_interest = rand(1000) + 1
 
-n = 5000
-binary_benchmark = []
-binary_count = []
-dummy_benchmark = []
-dummy_count = []
-
 puts "Binary search benchmark is #{Benchmark.measure { binary_search(sorted_array, number_of_interest) }} with #{binary_search(sorted_array, number_of_interest)} steps."
-puts "Dummy search benchmark is #{Benchmark.measure { dummy_search(sorted_array, number_of_interest) }} with #{dummy_search(sorted_array, number_of_interest)} steps."
+puts "Dummy search benchmark is #{Benchmark.measure { simple_search(sorted_array, number_of_interest) }} with #{simple_search(sorted_array, number_of_interest)} steps."
