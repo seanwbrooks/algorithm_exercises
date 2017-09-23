@@ -23,3 +23,4 @@ def selection_sort(array)
 end
 
 print selection_sort([5, 3, 6, 2, 10])
+print selection_sort([1,100,4,745,243,6435,654,54,45,6,7,0,5,32,6435])

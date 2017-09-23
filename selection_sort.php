@@ -3,7 +3,7 @@
 function find_smallest($array) {
   $smallest = $array[0];
   $smallest_index = 0;
-  for ($i = 0; $i < sizeof($array); $i++) {
+  for ($i = 0; $i < count($array); $i++) {
     if ($array[$i] < $smallest) {
       $smallest = $array[$i];
       $smallest_index = $i;
@@ -15,19 +15,15 @@ function find_smallest($array) {
 function selection_sort($array) {
   $new_array = [];
 
-  #Infinite loop (work on!)
-  while (sizeof($array) >= 1) {
+  while (count($array) > 0) {
     $smallest = find_smallest($array);
-    echo $smallest;
-    echo $new_array;
-    echo $array;
     array_push($new_array, $array[$smallest]);
-    unset($array[$smallest]);
+    array_splice($array, $smallest, 1);
   }
 
   return $new_array;
 }
 
-$array = [5, 3, 6, 2, 10];
-echo selection_sort($array);
+$array = [5, 3, 6, 2, 10, 1231, 23, 32, 667, 4, 55];
+print_r(selection_sort($array));
 ?>
